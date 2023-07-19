@@ -1,1 +1,10 @@
-<h1>This is from index page.</h1>
+
+{%for blog in blogs%}
+<h2>{{blog.title}}</h2>
+<p>{{blog.description}}</p>
+{%endfor%}
+
+{%if blog%}
+<h2>{{blog.title}}</h2>
+<p>{{blog.description}}</p>
+{%endif%}
