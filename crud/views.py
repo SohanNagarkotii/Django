@@ -11,6 +11,9 @@ from .forms import Blogfroms
 def index(request):
     return render(request, "crud/home.html")
 
+def post(request):
+    return render(request, "crud/index.html")
+
 def about(request):
     return render(request, "crud/about.html")
 
@@ -47,6 +50,18 @@ def deleteBlog(request, id):
     blog = Blog.objects.get(id=id)
     blog.delete()
     return redirect("home")
+
+def signUp(request):
+    return request
+
+def signIn(request):
+    return request
+
+def logOut(request):
+    return request
+
+def contact(request):
+    return render(request, "crud/contact.html")
 
 def updateBlog(request, id):
     blog = Blog.objects.get(id=id)
