@@ -4,9 +4,12 @@ from crud.models import Blog, Contactus
 from .forms import Blogfroms
 
 # Create your views here.
+# def index(request):
+#     blog = Blog.objects.all()
+#     return render(request, "crud/home.html", {"blogs": blog})
+
 def index(request):
-    blog = Blog.objects.all()
-    return render(request, "crud/index.html", {"blogs": blog})
+    return render(request, "crud/home.html")
 
 def about(request):
     return render(request, "crud/about.html")
@@ -40,4 +43,15 @@ def contactus(request):
 
     return render(request, "crud/contactus.html")
 
+def deleteBlog(request, id):
+    blog = Blog.objects.get(id=id)
+    blog.delete()
+    return redirect("home")
 
+def updateBlog(request, id):
+    blog = Blog.objects.get(id=id)
+    form = Blogfroms(request.POST or None, instance=blog)
+    if form.is_valid():
+        form.save()
+        return redirect("home")
+    return render(request, "crud/create.html", {"form": form})

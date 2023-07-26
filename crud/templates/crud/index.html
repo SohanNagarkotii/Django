@@ -1,10 +1,22 @@
 
 {%for blog in blogs%}
-<h2>{{blog.title}}</h2>
+<a href="{%url 'particular' blog.id%}">
+    <h2>{{blog.title}}</h2>
+</a>
 <p>{{blog.description}}</p>
 {%endfor%}
 
 {%if blog%}
 <h2>{{blog.title}}</h2>
 <p>{{blog.description}}</p>
+<a href="{%url 'deleteblog' blog.id%}" >
+    <button type="submit">
+        Delete
+    </button>
+</a>
+<a href="{%url 'updateblog' blog.id%}" >
+    <button type="submit">
+        Update
+    </button>
+</a>
 {%endif%}
