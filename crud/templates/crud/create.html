@@ -21,22 +21,18 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>Here you can write your daily blogs, post, creativity or anything. </p>
                         <div class="my-5">
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form id="contactForm" method = "Post" >
                                 <div class="form-floating">
-                                    <input class="form-control" for="id_title" name = "title" type="text" placeholder="Enter your Title..." data-sb-validations="required" />
+                                    <input class="form-control" for="id_title" name = "title" type="text" placeholder="Enter your Title..."/>
                                     <label for="name">Title</label>
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" for = "id_subheading" type="text" placeholder="Enter your Subheading..." data-sb-validations="required,email" />
+                                    <input class="form-control" for = "id_subheading" name = "subheading" type="text" placeholder="Enter your Subheading..." />
                                     <label for="email">Subheading</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" for = "id_description"name = "description" placeholder="Enter your description here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <textarea class="form-control" for = "id_description"name = "description" placeholder="Enter your description here..." style="height: 12rem"></textarea>
                                     <label for="message">Description</label>
-                                    <div class="invalid-feedback" data-sb-feedback="description:required">A message is required.</div>
                                 </div>
                                 <br />
                                 <!-- Submit success message-->
