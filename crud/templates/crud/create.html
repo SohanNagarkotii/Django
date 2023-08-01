@@ -22,16 +22,17 @@
                         <p>Here you can write your daily blogs, post, creativity or anything. </p>
                         <div class="my-5">
                             <form id="contactForm" method = "Post" >
+                                {% csrf_token %}
                                 <div class="form-floating">
-                                    <input class="form-control" for="id_title" name = "title" type="text" placeholder="Enter your Title..."/>
+                                    <input class="form-control" for="id_title" name = "title" type="text" value = "{{title}}" placeholder="Enter your Title..." />
                                     <label for="name">Title</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" for = "id_subheading" name = "subheading" type="text" placeholder="Enter your Subheading..." />
+                                    <input class="form-control" for = "id_subheading" name = "subheading" type="text" value = "{{subheading}}" placeholder="Enter your Subheading..."/>
                                     <label for="email">Subheading</label>
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" for = "id_description"name = "description" placeholder="Enter your description here..." style="height: 12rem"></textarea>
+                                    <textarea class="form-control" for = "id_description"name = "description"  placeholder="Enter your description here..." style="height: 12rem">{{description}}</textarea>
                                     <label for="message">Description</label>
                                 </div>
                                 <br />
@@ -53,7 +54,7 @@
                                 <!-- an error submitting the form-->
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
-                                <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Post</button>
+                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Post</button>
                             </form>
                         </div>
                     </div>

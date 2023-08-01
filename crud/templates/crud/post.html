@@ -30,5 +30,15 @@
         </div>
     </div>
 </article>
+<a href="{%url 'crud:deleteblog' blog.id%}" >
+    <button type="submit">
+        Delete
+    </button>
+</a>
+<a href="{%url 'crud:updateblog' blog.id%}" >
+    <button type="submit">
+        Update
+    </button>
+</a>
 {% endif %}
 {% endblock %}

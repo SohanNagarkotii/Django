@@ -11,6 +11,11 @@ from .forms import Blogfroms
 
 def index(request):
     blog = Blog.objects.all()
+    if (request.method == "POST"):
+        searchData = (request.POST.get("search"))
+        if(searchData != ""):
+            data = Blog.objects.filter(title__icontains = searchData)
+            return render(request, "crud/home.html", {"blogs": data})
     return render(request, "crud/home.html", {"blogs": blog})
 
 def post(request, id):
@@ -34,8 +39,8 @@ def create(request):
         data_content = request.POST.get("description")
         blog = Blog(
             title=data_title,
-            sub_heading=data_sub_heading,
-            content=data_content,
+            subheading=data_sub_heading,
+            description=data_content,
         )
         blog.save()
         return redirect("crud:home")
@@ -85,4 +90,10 @@ def updateBlog(request, id):
     if form.is_valid():
         form.save()
         return redirect("home")
-    return render(request, "crud/create.html", {"form": form})
+    context = {
+        "form":form ,
+        "title":blog.title,
+        "subheading": blog.subheading,
+        "description":blog.description
+    }
+    return render(request, "crud/create.html", context)
